@@ -1,0 +1,46 @@
+{
+  "name": "crm-server",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack -p && cp package.json dist",
+    "rollout": "npm run build && npm run deploy-prod",
+    "build-debug": "webpack -d && cp package.json dist",
+    "deploy": "sh scripts/deploy.sh",
+    "build-deploy": "npm run build && npm run deploy",
+    "debug-deploy": "npm run build-debug && npm run deploy",
+    "deploy-cron": "sh scripts/cron-prod.sh",
+    "deploy-prod": "sh scripts/deploy-prod.sh",
+    "backup": "sh scripts/backup.sh && sh scripts/backup-prod.sh",
+    "scaffold": "npm explore route-scaffold -- npm run scaffold",
+    "scaffold-c": "npm explore route-scaffold -- npm run scaffold-convenience"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "^7.1.2",
+    "@babel/node": "^7.0.0",
+    "@babel/preset-env": "^7.1.0",
+    "apn": "^2.2.0",
+    "axios": "^0.19.2",
+    "babel-loader": "^8.1.0",
+    "bcrypt": "^5.0.0",
+    "body-parser": "^1.19.0",
+    "exclude-node": "^0.1.0",
+    "express": "^4.17.1",
+    "mailgun-js": "^0.22.0",
+    "mongo-convenience": "^0.1.8",
+    "mongodb": "^3.5.5",
+    "route-scaffold": "^0.1.6",
+    "schema-convenience": "^0.2.1",
+    "twilio": "^3.47.0",
+    "webpack": "^5.22.0",
+    "ws": "^7.3.1"
+  },
+  "devDependencies": {
+    "webpack-cli": "^5.1.4"
+  }
+}

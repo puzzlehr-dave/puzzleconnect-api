@@ -1,0 +1,12 @@
+{
+    "name": "cron-server",
+    "version": "0.1.0",
+    "description": "",
+    "main": "index.js",
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "axios": "^0.19.2"
+    }
+  }
+  
