@@ -3,10 +3,7 @@ import express from 'express';
 import db from 'mongo-convenience';
 import { auth, respond } from 'schema-convenience';
 
-import hasher from '../utils/hasher';
-import validate from '../utils/validate';
 import generateToken from '../utils/token';
-import messaging from '../services/messaging';
 import axios from 'axios';
 
 const authentication = express.Router();
@@ -15,6 +12,8 @@ const emailCodes = {};
 const phoneCodes = {};
 
 
+const APPKEY = "cfd8b806-2dbb-41e8-9726-614a18f4ddf1";
+const SECRETKEY = "hVA1uQ6aqkScBKYcoRCdgQ==";
 
 const requestVerification = async (phone) => {
     const sinchUrl = 'https://verification.api.sinch.com/verification/v1/verifications';
@@ -23,15 +22,15 @@ const requestVerification = async (phone) => {
         const data = {
             identity: {
                 type: 'number',
-                endpoint: '+' + phone
+                endpoint: '+' + '639505425118'
             },
             method: 'sms'
         };
 
         const headers = {
-            'Authorization': `Basic ZDExMzIyNzgtYWE2Zi00YzliLTk0N2ItNjhmNzQ0ZjEyYzAzOnhKRUp2cndDN1VxemMrbjhVb0tVRmc9PQ==`,
-            'Content-Type': 'application/json',
-            'Accept-Language': 'en-US'
+            Authorization: `Basic ${btoa(APPKEY + ":" + SECRETKEY)}`,
+            "Content-Type": "application/json",
+            "Accept-Language": "en-US",
         };
         
         await axios.post(sinchUrl, data, { headers });

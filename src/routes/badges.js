@@ -2,8 +2,6 @@
 import express from 'express';
 import db from 'mongo-convenience';
 import { auth } from 'schema-convenience';
-import dateUtils from '../utils/date';
-import words from '../utils/words';
 import notifications from '../services/notifications';
 
 const badges = express.Router();

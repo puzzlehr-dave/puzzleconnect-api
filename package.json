@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack -p && cp package.json dist",
+    "build": "webpack --mode production && cp package.json dist",
     "rollout": "npm run build && npm run deploy-prod",
     "build-debug": "webpack -d && cp package.json dist",
     "deploy": "sh scripts/deploy.sh",
